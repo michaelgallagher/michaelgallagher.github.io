@@ -1,0 +1,1154 @@
+@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+@font-face {
+  font-family: 'Gross';
+  src: url("/fonts/Gross-Regular.woff") format("woff");
+  src: url("/fonts/Gross-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Gross';
+  src: url("/fonts/Gross-Bold.woff") format("woff");
+  src: url("/fonts/Gross-Bold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Gross';
+  src: url("/fonts/Gross-Black.woff") format("woff");
+  src: url("/fonts/Gross-Black.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Agaramont';
+  src: url("/fonts/Agaramont-Regular.woff") format("woff");
+  src: url("/fonts/Agaramont-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Agaramont';
+  src: url("/fonts/Agaramont-RegularItalic.woff") format("woff");
+  src: url("/fonts/Agaramont-RegularItalic.woff2") format("woff2");
+  font-weight: normal;
+  font-style: italic; }
+
+/* Color variables
+----------------------------------------------------------------------------- */
+/* Library of individual row colours
+----------------------------------------------------------------------------- */
+.color-row---1 {
+  background-color: #fff;
+  color: #f00; }
+
+.color-row---2 {
+  background-color: #000;
+  color: #fff; }
+
+.color-row---3 {
+  background-color: #ff9900;
+  color: blue; }
+
+html, body {
+  height: 100%; }
+
+img {
+  max-width: 100%;
+  display: block; }
+
+.bottom {
+  height: 100%;
+  margin-top: auto; }
+
+/* Margins for the navigation + footer
+----------------------------------------------------------------------------- */
+/* Horizontal margins
+----------------------------------------------------------------------------- */
+/* Vertical margins -- normal
+----------------------------------------------------------------------------- */
+/*
+
+Margins-vert-color exists because after a color row
+I need to add an extra unit of vertical spacing
+so that there is space at the bottom of the color row (inside)
+and also after that row, before the next unit.
+
+The -2nd set is for a color row *after* a color row,
+which needs to have the extra margin from the previous row removed.
+This is inelegant, but I don't know how else to do it, yet.
+
+*/
+.grid {
+  display: grid;
+  grid-template-columns: 0px 0px repeat(12, 1fr) 0px 0px;
+  grid-template-rows: min-content auto min-content;
+  column-gap: 8px;
+  row-gap: 0; }
+  @media screen and (min-width: 620px) {
+    .grid {
+      grid-template-columns: 0px 12px repeat(12, 1fr) 12px 0px;
+      column-gap: 10px; } }
+  @media screen and (min-width: 910px) {
+    .grid {
+      grid-template-columns: 0px 20px repeat(12, 1fr) 20px 0px; } }
+
+/* Font stack mixins
+(so I don't have to keep typing this shit)
+----------------------------------------------------------------------------- */
+/* Font sizing
+----------------------------------------------------------------------------- */
+/* ----- Primary body size type ----- */
+/* ----- Small type ----- */
+/* ----- Big type ----- */
+/* Basics - the foundational stuff
+   This is just for setting up all the basic parts
+   This is NOT for setting the size and fonts for every page type
+   All of that stuff goes in the CSS for each kind of page
+----------------------------------------------------------------------------- */
+body {
+  font-family: 'SansRoman-Regular', Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.25;
+  text-rendering: optimizeLegibility;
+  font-variant-ligatures: common-ligatures;
+  font-kerning: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+  @media screen and (min-width: 620px) {
+    body {
+      font-size: 23px; } }
+  @media screen and (min-width: 910px) {
+    body {
+      font-size: 27px; } }
+  @media screen and (min-width: 1180px) {
+    body {
+      font-size: 30px; } }
+  @media screen and (min-width: 1520px) {
+    body {
+      font-size: 32px; } }
+
+h1, h2, h3, h4, h5, h6, p, a, img, ul, ol, blockquote, pre {
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1em; }
+
+p {
+  letter-spacing: 0em;
+  line-height: 1.35em; }
+  @media screen and (min-width: 620px) {
+    p {
+      letter-spacing: -0.008em; } }
+  @media screen and (min-width: 910px) {
+    p {
+      letter-spacing: -0.005em; } }
+  @media screen and (min-width: 1180px) {
+    p {
+      letter-spacing: -0.01em; } }
+  @media screen and (min-width: 1520px) {
+    p {
+      line-height: 1.3em; } }
+
+/* TODO: standardise across the site and consolidate ------------------------ */
+a {
+  color: #000;
+  text-decoration: none; }
+
+.knockout {
+  color: #fff; }
+  .knockout a {
+    color: #fff;
+    text-decoration: none;
+    background-color: transparent; }
+    .knockout a:hover, .knockout a:active {
+      background-color: #000; }
+
+.knockout-with-shadow {
+  color: #fff;
+  text-shadow: 0px 2px 70px rgba(0, 0, 0, 0.4); }
+
+.intro {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 24.2px 22px 20.9px;
+  background-color: #fff;
+  color: #000;
+  border-bottom: 1px solid #000;
+  width: 100%; }
+  @media screen and (min-width: 620px) {
+    .intro {
+      padding: 24.2px 22px 20.9px; } }
+  @media screen and (min-width: 910px) {
+    .intro {
+      padding: 25.3px 23px 21.85px; } }
+  @media screen and (min-width: 1180px) {
+    .intro {
+      padding: 27.5px 25px 23.75px; } }
+  @media screen and (min-width: 1520px) {
+    .intro {
+      padding: 30.8px 28px 26.6px; } }
+  @media screen and (min-width: 910px) {
+    .intro {
+      border-bottom: 2px solid #000; } }
+  .intro p {
+    font-family: 'RomanSque-Regular', Helvetica, Arial, sans-serif;
+    font-size: 0.88em;
+    letter-spacing: -0.015em;
+    line-height: 1.5em; }
+    @media screen and (min-width: 620px) {
+      .intro p {
+        letter-spacing: -0.03em;
+        font-size: 0.89em; } }
+    @media screen and (min-width: 910px) {
+      .intro p {
+        letter-spacing: -0.06em;
+        font-size: 0.9em; } }
+    @media screen and (min-width: 1180px) {
+      .intro p {
+        letter-spacing: -0.08em;
+        font-size: 0.96em; } }
+    @media screen and (min-width: 1520px) {
+      .intro p {
+        letter-spacing: -0.085em; } }
+    @media screen and (min-width: 620px) {
+      .intro p {
+        line-height: 1.4em; } }
+    @media screen and (min-width: 910px) {
+      .intro p {
+        line-height: 1.35em; } }
+  .intro a {
+    color: #757575; }
+    .intro a:hover {
+      color: #fff; }
+
+.intro---not-home {
+  height: 67px; }
+  @media screen and (min-width: 620px) {
+    .intro---not-home {
+      height: 73px; } }
+  @media screen and (min-width: 910px) {
+    .intro---not-home {
+      height: 82px; } }
+  @media screen and (min-width: 1180px) {
+    .intro---not-home {
+      height: 92px; } }
+  @media screen and (min-width: 1520px) {
+    .intro---not-home {
+      height: 99px; } }
+
+.intro---home {
+  height: 136px; }
+  @media screen and (min-width: 620px) {
+    .intro---home {
+      height: 100px; } }
+  @media screen and (min-width: 910px) {
+    .intro---home {
+      height: 82px; } }
+  @media screen and (min-width: 1180px) {
+    .intro---home {
+      height: 92px; } }
+  @media screen and (min-width: 1520px) {
+    .intro---home {
+      height: 99px; } }
+
+@media screen and (min-width: 620px) {
+  .hide-above-tiny {
+    display: none; } }
+
+@media screen and (min-width: 910px) {
+  .hide-above-small {
+    display: none; } }
+
+/* Filters
+----------------------------------------------------------------------------- */
+.filter-btn {
+  padding-left: 22px; }
+  @media screen and (min-width: 620px) {
+    .filter-btn {
+      padding-left: 22px; } }
+  @media screen and (min-width: 910px) {
+    .filter-btn {
+      padding-left: 23px; } }
+  @media screen and (min-width: 1180px) {
+    .filter-btn {
+      padding-left: 25px; } }
+  @media screen and (min-width: 1520px) {
+    .filter-btn {
+      padding-left: 28px; } }
+
+@media screen and (min-width: 620px) {
+  .mobile-nav {
+    display: none; } }
+
+.nonmobile-nav {
+  display: none; }
+  @media screen and (min-width: 620px) {
+    .nonmobile-nav {
+      display: block; } }
+
+.navigation {
+  z-index: 100;
+  /* the typography */
+  font-family: 'RomanSque-Regular', Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-size: 0.88em;
+  letter-spacing: 0.04em;
+  line-height: 1em;
+  color: #000;
+  /* the layout */
+  padding: 0;
+  margin: 0;
+  position: fixed;
+  /* layout for mobile screens */
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  /* reset the layout for larger-than-mobile screens */ }
+  @media screen and (min-width: 620px) {
+    .navigation {
+      font-size: 0.89em;
+      letter-spacing: 0.03em; } }
+  @media screen and (min-width: 910px) {
+    .navigation {
+      font-size: 0.90em;
+      letter-spacing: 0.02em; } }
+  @media screen and (min-width: 1180px) {
+    .navigation {
+      font-size: 0.91em;
+      letter-spacing: 0.015em; } }
+  @media screen and (min-width: 620px) {
+    .navigation {
+      padding: 22px; } }
+  @media screen and (min-width: 910px) {
+    .navigation {
+      padding: 23px; } }
+  @media screen and (min-width: 1180px) {
+    .navigation {
+      padding: 25px; } }
+  @media screen and (min-width: 1520px) {
+    .navigation {
+      padding: 28px; } }
+  @media screen and (min-width: 620px) {
+    .navigation {
+      display: block;
+      width: auto; } }
+  .navigation .nav-wrapper {
+    background-color: white;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid black; }
+    @media screen and (min-width: 620px) {
+      .navigation .nav-wrapper {
+        border: 1px solid black;
+        background-color: #e8e8e8; } }
+    @media screen and (min-width: 910px) {
+      .navigation .nav-wrapper {
+        border: 2px solid black; } }
+  .navigation .nav-links {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center; }
+    .navigation .nav-links li {
+      margin-left: 0;
+      margin-right: 0;
+      display: inline;
+      color: #aaa; }
+      @media screen and (min-width: 620px) {
+        .navigation .nav-links li {
+          color: #000; } }
+    .navigation .nav-links a {
+      padding: 18.26px 7.7px 13.2px; }
+      @media screen and (min-width: 620px) {
+        .navigation .nav-links a {
+          padding: 20.24px 18.04px 14.74px; } }
+      @media screen and (min-width: 910px) {
+        .navigation .nav-links a {
+          padding: 20.7px 18.86px 15.41px; } }
+      @media screen and (min-width: 1180px) {
+        .navigation .nav-links a {
+          padding: 23px 20.5px 16.75px; } }
+      @media screen and (min-width: 1520px) {
+        .navigation .nav-links a {
+          padding: 25.2px 22.4px 17.92px; } }
+      @media screen and (min-width: 620px) {
+        .navigation .nav-links a:hover {
+          background-color: #000; } }
+      @media screen and (min-width: 620px) {
+        .navigation .nav-links a:hover li {
+          color: #fff; } }
+      .navigation .nav-links a:active {
+        position: relative;
+        box-shadow: 0px 0px 0px 100px #000; }
+    .navigation .nav-links a.here:hover li, .navigation .nav-links a.here:active li {
+      color: #000; }
+      @media screen and (min-width: 620px) {
+        .navigation .nav-links a.here:hover li, .navigation .nav-links a.here:active li {
+          color: #fff; } }
+    .navigation .nav-links a.here li {
+      color: #000; }
+      @media screen and (min-width: 620px) {
+        .navigation .nav-links a.here li {
+          color: #000; } }
+    .navigation .nav-links .here {
+      background-color: #fff !important; }
+      @media screen and (min-width: 620px) {
+        .navigation .nav-links .here:hover {
+          background-color: #000 !important; } }
+    @media screen and (min-width: 620px) {
+      .navigation .nav-links .notes-nav {
+        background-color: #f8c6b4; } }
+    @media screen and (min-width: 620px) {
+      .navigation .nav-links .about-nav {
+        background-color: #d4b481; } }
+    @media screen and (min-width: 620px) {
+      .navigation .nav-links .nav-item {
+        border-right: 1px solid black; } }
+    @media screen and (min-width: 910px) {
+      .navigation .nav-links .nav-item {
+        border-right: 2px solid black; } }
+    .navigation .nav-links .nav-item:last-of-type {
+      border-right: none; }
+
+.footer {
+  background-color: #e8e8e8; }
+
+.footer-content {
+  font-family: 'RomanSque-Regular', Helvetica, Arial, sans-serif;
+  /* The pagination buttons
+  --------------------------------------------------------------------------------- */
+  /* For the text injection
+  --------------------------------------------------------------------------------- */
+  /*
+  we don't need these if the link style has a background colour –
+  they aren't text so much as tiny blocks
+  */ }
+  .footer-content .footer-links {
+    display: block;
+    padding: 24.2px 22px;
+    font-size: 0.88em;
+    letter-spacing: -0.015em; }
+    @media screen and (min-width: 620px) {
+      .footer-content .footer-links {
+        padding: 24.2px 22px; } }
+    @media screen and (min-width: 910px) {
+      .footer-content .footer-links {
+        padding: 25.3px 23px; } }
+    @media screen and (min-width: 1180px) {
+      .footer-content .footer-links {
+        padding: 27.5px 25px; } }
+    @media screen and (min-width: 1520px) {
+      .footer-content .footer-links {
+        padding: 30.8px 28px; } }
+    @media screen and (min-width: 620px) {
+      .footer-content .footer-links {
+        letter-spacing: -0.03em;
+        font-size: 0.89em; } }
+    @media screen and (min-width: 910px) {
+      .footer-content .footer-links {
+        letter-spacing: -0.06em;
+        font-size: 0.9em; } }
+    @media screen and (min-width: 1180px) {
+      .footer-content .footer-links {
+        letter-spacing: -0.08em;
+        font-size: 0.96em; } }
+    @media screen and (min-width: 1520px) {
+      .footer-content .footer-links {
+        letter-spacing: -0.085em; } }
+    .footer-content .footer-links p, .footer-content .footer-links ul {
+      line-height: 1.6em;
+      letter-spacing: -0.015em;
+      font-size: 12px; }
+      @media screen and (min-width: 620px) {
+        .footer-content .footer-links p, .footer-content .footer-links ul {
+          font-size: 15px; } }
+      @media screen and (min-width: 910px) {
+        .footer-content .footer-links p, .footer-content .footer-links ul {
+          font-size: 15px; } }
+      @media screen and (min-width: 1180px) {
+        .footer-content .footer-links p, .footer-content .footer-links ul {
+          font-size: 16px; } }
+      @media screen and (min-width: 1520px) {
+        .footer-content .footer-links p, .footer-content .footer-links ul {
+          font-size: 16px; } }
+    .footer-content .footer-links p {
+      margin-bottom: 1em; }
+    .footer-content .footer-links .param-list-heading {
+      margin-bottom: 15px; }
+      @media screen and (min-width: 910px) {
+        .footer-content .footer-links .param-list-heading {
+          margin-bottom: 3px; } }
+    .footer-content .footer-links .footer-cluster {
+      margin-bottom: 2em; }
+      @media screen and (min-width: 620px) {
+        .footer-content .footer-links .footer-cluster {
+          margin-bottom: 1.5em; } }
+      @media screen and (min-width: 910px) {
+        .footer-content .footer-links .footer-cluster {
+          margin-bottom: 0.7em; } }
+    .footer-content .footer-links ul {
+      display: block; }
+      @media screen and (min-width: 910px) {
+        .footer-content .footer-links ul {
+          display: flex;
+          flex-direction: row; } }
+      .footer-content .footer-links ul:last-of-type {
+        margin-bottom: 0; }
+      .footer-content .footer-links ul li {
+        display: block; }
+        @media screen and (min-width: 910px) {
+          .footer-content .footer-links ul li {
+            flex-direction: row; } }
+      .footer-content .footer-links ul .param-list-item {
+        margin-bottom: 23px; }
+        @media screen and (min-width: 910px) {
+          .footer-content .footer-links ul .param-list-item {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 0;
+            margin-right: -1px; } }
+        @media screen and (min-width: 1520px) {
+          .footer-content .footer-links ul .param-list-item {
+            margin-bottom: 1px; } }
+      .footer-content .footer-links ul a {
+        border: 1px solid #000;
+        padding: 16px 16px 15px 16px; }
+        @media screen and (min-width: 910px) {
+          .footer-content .footer-links ul a {
+            padding: 6px 10px 2px 10px; } }
+        .footer-content .footer-links ul a:hover {
+          border: 1px solid #000;
+          background: #000;
+          color: #fff; }
+        .footer-content .footer-links ul a:active {
+          border: 1px solid #000;
+          background: #000;
+          color: #fff;
+          box-shadow: 0px 0px 0px 100px #000; }
+  .footer-content .pagination {
+    padding: 0 0 47px 0;
+    text-transform: uppercase;
+    font-size: 0.88em;
+    letter-spacing: 0.04em;
+    line-height: 1em;
+    /* layout for mobile screens */
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    /* reset the layout for larger-than-mobile screens */ }
+    @media screen and (min-width: 620px) {
+      .footer-content .pagination {
+        padding: 22px 22px 78px 22px; } }
+    @media screen and (min-width: 910px) {
+      .footer-content .pagination {
+        padding: 23px 23px 85px 23px; } }
+    @media screen and (min-width: 1180px) {
+      .footer-content .pagination {
+        padding: 25px 25px 94px 25px; } }
+    @media screen and (min-width: 1520px) {
+      .footer-content .pagination {
+        padding: 28px 28px 102px 28px; } }
+    @media screen and (min-width: 620px) {
+      .footer-content .pagination {
+        font-size: 0.89em;
+        letter-spacing: 0.03em; } }
+    @media screen and (min-width: 910px) {
+      .footer-content .pagination {
+        font-size: 0.90em;
+        letter-spacing: 0.02em; } }
+    @media screen and (min-width: 1180px) {
+      .footer-content .pagination {
+        font-size: 0.91em;
+        letter-spacing: 0.015em; } }
+    @media screen and (min-width: 620px) {
+      .footer-content .pagination {
+        display: block;
+        width: auto; } }
+    .footer-content .pagination .pagination-wrapper {
+      width: 100%;
+      text-align: center;
+      background-color: #fff; }
+      @media screen and (min-width: 620px) {
+        .footer-content .pagination .pagination-wrapper {
+          background-color: transparent; } }
+    .footer-content .pagination .pagination-links {
+      width: 100%;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      border-top: 1px solid black; }
+      @media screen and (min-width: 620px) {
+        .footer-content .pagination .pagination-links {
+          border-top: none;
+          justify-content: flex-start; } }
+    .footer-content .pagination .pagination-item {
+      background-color: #fff; }
+      @media screen and (min-width: 620px) {
+        .footer-content .pagination .pagination-item {
+          border: 1px solid black;
+          margin-left: -2px; }
+          .footer-content .pagination .pagination-item:first-of-type {
+            margin-left: 0; } }
+      @media screen and (min-width: 910px) {
+        .footer-content .pagination .pagination-item {
+          border: 2px solid black;
+          margin-left: -2px; } }
+    .footer-content .pagination li {
+      margin-left: 0;
+      margin-right: 0;
+      display: inline;
+      color: black; }
+    .footer-content .pagination a {
+      padding: 18.26px 7.7px 13.2px;
+      color: #000; }
+      @media screen and (min-width: 620px) {
+        .footer-content .pagination a {
+          padding: 20.24px 18.04px 14.74px; } }
+      @media screen and (min-width: 910px) {
+        .footer-content .pagination a {
+          padding: 20.7px 18.86px 15.41px; } }
+      @media screen and (min-width: 1180px) {
+        .footer-content .pagination a {
+          padding: 23px 20.5px 16.75px; } }
+      @media screen and (min-width: 1520px) {
+        .footer-content .pagination a {
+          padding: 25.2px 22.4px 17.92px; } }
+      @media screen and (min-width: 620px) {
+        .footer-content .pagination a:hover {
+          background-color: #000; }
+          .footer-content .pagination a:hover li {
+            color: #fff; } }
+      .footer-content .pagination a:active {
+        box-shadow: 0px 0px 0px 100px #000;
+        position: relative; }
+
+#home {
+  background-color: #faeaea; }
+
+/* The intro block
+---------------------------------------------------------------------------------- */
+#introduction {
+  grid-column: 3 / span 12;
+  font-family: 'Agaramont', Times, serif;
+  padding-top: 78px;
+  padding-bottom: 78px;
+  text-shadow: 0.5px 0.5px 2px #000, 0.5px -0.5px 2px #000, -0.5px 0.5px 2px #000, -0.5px -0.5px 2px #000; }
+  @media screen and (min-width: 620px) {
+    #introduction {
+      padding-top: 90px;
+      padding-bottom: 90px; } }
+  @media screen and (min-width: 910px) {
+    #introduction {
+      padding-top: 112px;
+      padding-bottom: 112px; } }
+  @media screen and (min-width: 1180px) {
+    #introduction {
+      padding-top: 124px;
+      padding-bottom: 124px; } }
+  @media screen and (min-width: 1520px) {
+    #introduction {
+      padding-top: 132px;
+      padding-bottom: 132px; } }
+  @media screen and (min-width: 620px) {
+    #introduction {
+      text-shadow: 0.5px 0.5px 2.5px #000, 0.5px -0.5px 2.5px #000, -0.5px 0.5px 2.5px #000, -0.5px -0.5px 2.5px #000; } }
+  @media screen and (min-width: 910px) {
+    #introduction {
+      grid-column: 3 / span 10;
+      text-shadow: 0.5px 0.5px 3.2px #000, 0.5px -0.5px 3.2px #000, -0.5px 0.5px 3.2px #000, -0.5px -0.5px 3.2px #000; } }
+  @media screen and (min-width: 1180px) {
+    #introduction {
+      grid-column: 3 / span 9; } }
+  @media screen and (min-width: 1520px) {
+    #introduction {
+      grid-column: 3 / span 8; } }
+  #introduction p {
+    font-size: 1.35em;
+    letter-spacing: 0.015em;
+    line-height: 1.15em;
+    text-indent: 1.75em;
+    margin-bottom: 1em; }
+    #introduction p:first-of-type {
+      margin-top: -10px; }
+    #introduction p:last-of-type {
+      margin-bottom: 0px; }
+    @media screen and (min-width: 620px) {
+      #introduction p {
+        font-size: 1.6em;
+        text-indent: 2em; } }
+    @media screen and (min-width: 910px) {
+      #introduction p {
+        letter-spacing: 0.01em; } }
+  #introduction i {
+    font-style: italic; }
+  #introduction .my-name {
+    font-family: 'Gross', Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    font-size: 0.95em; }
+  #introduction a {
+    font-style: italic;
+    transition: text-shadow 0.5s ease; }
+    #introduction a:hover {
+      transition: text-shadow 0.5s ease; }
+    #introduction a:active {
+      box-shadow: 0px 0px 0px 10000px #000;
+      background-color: #000;
+      color: #fff;
+      position: relative; }
+  #introduction a.atf:hover {
+    text-shadow: 0 0 30px deeppink, 0 0 35px deeppink, 0 0 40px deeppink, 0 0 45px deeppink, 0 0 50px deeppink, 0 0 55px deeppink, 0 0 60px deeppink; }
+  #introduction a.client:hover {
+    text-shadow: 0 0 30px chartreuse, 0 0 35px chartreuse, 0 0 40px chartreuse, 0 0 45px chartreuse, 0 0 50px chartreuse, 0 0 55px chartreuse, 0 0 60px chartreuse; }
+  #introduction a.studio:hover {
+    text-shadow: 0 0 30px darkturquoise, 0 0 35px darkturquoise, 0 0 40px darkturquoise, 0 0 45px darkturquoise, 0 0 50px darkturquoise, 0 0 55px darkturquoise, 0 0 60px darkturquoise; }
+  #introduction a.whp:hover {
+    text-shadow: 0 0 30px crimson, 0 0 35px crimson, 0 0 40px crimson, 0 0 45px crimson, 0 0 50px crimson, 0 0 55px crimson, 0 0 60px crimson; }
+  #introduction a.teaching:hover {
+    text-shadow: 0 0 30px gold, 0 0 35px gold, 0 0 40px gold, 0 0 45px gold, 0 0 50px gold, 0 0 55px gold, 0 0 60px gold; }
+  #introduction a.email-address:hover {
+    text-shadow: 0 0 30px chocolate, 0 0 35px chocolate, 0 0 40px chocolate, 0 0 45px chocolate, 0 0 50px chocolate, 0 0 55px chocolate, 0 0 60px chocolate; }
+  #introduction .not-agaramont {
+    font-family: 'Times New Roman', Times, serif; }
+
+/* The featured projects
+---------------------------------------------------------------------------------- */
+#featured {
+  grid-column: 1 / span 16;
+  font-family: 'Agaramont', Times, serif; }
+  #featured .featured-project {
+    display: grid;
+    grid-template-columns: 0px 20px repeat(12, 1fr) 20px 0px;
+    grid-template-rows: min-content auto min-content;
+    column-gap: 10px;
+    row-gap: 0;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply; }
+    #featured .featured-project .type {
+      background: green;
+      grid-column: 3 / span 5;
+      font-size: 1.5em;
+      mix-blend-mode: exclusion;
+      color: yellow; }
+
+#project-index {
+  grid-column: 1 / span 16; }
+  #project-index .project-listing {
+    line-height: 1.6em;
+    letter-spacing: -0.015em;
+    font-size: 12px;
+    background-color: cyan;
+    display: grid;
+    grid-template-columns: 0px 20px repeat(12, 1fr) 20px 0px;
+    grid-template-rows: min-content auto min-content;
+    column-gap: 10px;
+    row-gap: 0;
+    border-bottom: 1px solid black;
+    padding: 8px 0 10px;
+    position: relative; }
+    @media screen and (min-width: 620px) {
+      #project-index .project-listing {
+        font-size: 15px; } }
+    @media screen and (min-width: 910px) {
+      #project-index .project-listing {
+        font-size: 15px; } }
+    @media screen and (min-width: 1180px) {
+      #project-index .project-listing {
+        font-size: 16px; } }
+    @media screen and (min-width: 1520px) {
+      #project-index .project-listing {
+        font-size: 16px; } }
+    #project-index .project-listing a {
+      z-index: 2; }
+      #project-index .project-listing a:active {
+        box-shadow: 0px 0px 0px 100px #000;
+        background-color: #000;
+        color: #fff;
+        position: relative; }
+    #project-index .project-listing:hover {
+      background: black; }
+      #project-index .project-listing:hover a.standfirst {
+        color: #fff; }
+      #project-index .project-listing:hover ul.listing__category a {
+        color: #fff; }
+      #project-index .project-listing:hover ul.listing__client a {
+        color: #fff; }
+    #project-index .project-listing a.standfirst {
+      grid-column: 3 / span 6;
+      font-family: 'Gross', Helvetica, Arial, sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      line-height: 1.25em; }
+      #project-index .project-listing a.standfirst:hover {
+        color: yellow; }
+    #project-index .project-listing a.standfirst::before {
+      content: " ";
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0; }
+    #project-index .project-listing ul.listing__category,
+    #project-index .project-listing ul.listing__client {
+      z-index: 3; }
+      #project-index .project-listing ul.listing__category a:hover,
+      #project-index .project-listing ul.listing__client a:hover {
+        color: yellow; }
+    #project-index .project-listing li {
+      font-family: 'RomanSque-Regular', Helvetica, Arial, sans-serif; }
+    #project-index .project-listing ul.listing__category {
+      grid-column: 11 / span 2; }
+    #project-index .project-listing ul.listing__client {
+      grid-column: 13 / span 2; }
+
+/* The project list table 
+---------------------------------------------------------------------------------- */
+.project-table {
+  width: 100%; }
+  .project-table tr {
+    border-bottom: 1px solid #000; }
+  .project-table td {
+    padding-top: 20px;
+    padding-bottom: 23px; }
+  .project-table tr.knockout {
+    color: #fff; }
+
+.project-table---heading {
+  font-family: 'Agaramont', Times, serif;
+  text-align: left; }
+  .project-table---heading th {
+    padding-bottom: 7px; }
+
+tr.project-listing:hover {
+  background: #000 !important; }
+  tr.project-listing:hover a {
+    color: #fff;
+    background: none; }
+    tr.project-listing:hover a:active {
+      box-shadow: 0px 0px 0px 100px #000;
+      background-color: #000;
+      color: #fff;
+      position: relative; }
+
+.project-table---heading th,
+td.project-standfirst {
+  padding-left: 22px; }
+  @media screen and (min-width: 620px) {
+    .project-table---heading th,
+    td.project-standfirst {
+      padding-left: 60px; } }
+  @media screen and (min-width: 910px) {
+    .project-table---heading th,
+    td.project-standfirst {
+      padding-left: 90px; } }
+  @media screen and (min-width: 1180px) {
+    .project-table---heading th,
+    td.project-standfirst {
+      padding-left: 108px; } }
+  @media screen and (min-width: 1520px) {
+    .project-table---heading th,
+    td.project-standfirst {
+      padding-left: 124px; } }
+
+td.project-client {
+  padding-right: 22px; }
+  @media screen and (min-width: 620px) {
+    td.project-client {
+      padding-right: 60px; } }
+  @media screen and (min-width: 910px) {
+    td.project-client {
+      padding-right: 90px; } }
+  @media screen and (min-width: 1180px) {
+    td.project-client {
+      padding-right: 108px; } }
+  @media screen and (min-width: 1520px) {
+    td.project-client {
+      padding-right: 124px; } }
+
+td.project-standfirst {
+  font-size: 0.92em;
+  width: 60%;
+  padding-right: 35px; }
+
+td.project-category,
+td.project-client {
+  line-height: 1.6em;
+  letter-spacing: -0.015em;
+  font-size: 12px;
+  font-family: 'RomanSque-Regular', Helvetica, Arial, sans-serif;
+  width: 20%; }
+  @media screen and (min-width: 620px) {
+    td.project-category,
+    td.project-client {
+      font-size: 15px; } }
+  @media screen and (min-width: 910px) {
+    td.project-category,
+    td.project-client {
+      font-size: 15px; } }
+  @media screen and (min-width: 1180px) {
+    td.project-category,
+    td.project-client {
+      font-size: 16px; } }
+  @media screen and (min-width: 1520px) {
+    td.project-category,
+    td.project-client {
+      font-size: 16px; } }
+
+/* Page level
+----------------------------------------------------------------------------- */
+.project {
+  background-color: #e8e8e8; }
+
+.reversed {
+  background-color: #222;
+  color: #fff; }
+
+/* Project page header
+----------------------------------------------------------------------------- */
+.project-header {
+  padding: 110px 22px 88px;
+  margin-top: 69px;
+  width: 100%;
+  z-index: 999; }
+  @media screen and (min-width: 620px) {
+    .project-header {
+      padding: 22px 22px 0; } }
+  @media screen and (min-width: 910px) {
+    .project-header {
+      padding: 23px 23px 0; } }
+  @media screen and (min-width: 1180px) {
+    .project-header {
+      padding: 25px 25px 0; } }
+  @media screen and (min-width: 1520px) {
+    .project-header {
+      padding: 28px 28px 0; } }
+  .project-header h1 {
+    display: inline-block;
+    margin-bottom: 1em;
+    padding: 18.26px 16.5px 13.2px;
+    font-family: 'RomanSque-Regular', Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 0.88em;
+    letter-spacing: 0.04em;
+    line-height: 1em;
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #000; }
+    @media screen and (min-width: 620px) {
+      .project-header h1 {
+        padding: 20.24px 18.04px 14.74px; } }
+    @media screen and (min-width: 910px) {
+      .project-header h1 {
+        padding: 20.7px 18.86px 15.41px; } }
+    @media screen and (min-width: 1180px) {
+      .project-header h1 {
+        padding: 23px 20.5px 16.75px; } }
+    @media screen and (min-width: 1520px) {
+      .project-header h1 {
+        padding: 25.2px 22.4px 17.92px; } }
+    @media screen and (min-width: 620px) {
+      .project-header h1 {
+        font-size: 0.89em;
+        letter-spacing: 0.03em; } }
+    @media screen and (min-width: 910px) {
+      .project-header h1 {
+        font-size: 0.90em;
+        letter-spacing: 0.02em; } }
+    @media screen and (min-width: 1180px) {
+      .project-header h1 {
+        font-size: 0.91em;
+        letter-spacing: 0.015em; } }
+    @media screen and (min-width: 910px) {
+      .project-header h1 {
+        border: 2px solid #000;
+        margin-bottom: 0.88em; } }
+  .project-header h2 {
+    font-family: 'RomanSque-Regular', Helvetica, Arial, sans-serif;
+    font-size: 0.88em;
+    letter-spacing: -0.015em;
+    max-width: 480px;
+    margin-left: -1px;
+    line-height: 1.5em; }
+    @media screen and (min-width: 620px) {
+      .project-header h2 {
+        letter-spacing: -0.03em;
+        font-size: 0.89em; } }
+    @media screen and (min-width: 910px) {
+      .project-header h2 {
+        letter-spacing: -0.06em;
+        font-size: 0.9em; } }
+    @media screen and (min-width: 1180px) {
+      .project-header h2 {
+        letter-spacing: -0.08em;
+        font-size: 0.96em; } }
+    @media screen and (min-width: 1520px) {
+      .project-header h2 {
+        letter-spacing: -0.085em; } }
+    @media screen and (min-width: 620px) {
+      .project-header h2 {
+        max-width: 610px;
+        line-height: 1.4em; } }
+    @media screen and (min-width: 910px) {
+      .project-header h2 {
+        max-width: 720px;
+        line-height: 1.35em; } }
+    @media screen and (min-width: 1180px) {
+      .project-header h2 {
+        max-width: 790px; } }
+    @media screen and (min-width: 1520px) {
+      .project-header h2 {
+        max-width: 840px; } }
+
+/* end project-header */
+/* Project page content
+----------------------------------------------------------------------------- */
+.project-content {
+  padding-top: 22px;
+  padding-bottom: 22px; }
+  @media screen and (min-width: 620px) {
+    .project-content {
+      padding-top: 60px; } }
+  @media screen and (min-width: 910px) {
+    .project-content {
+      padding-top: 90px; } }
+  @media screen and (min-width: 1180px) {
+    .project-content {
+      padding-top: 108px; } }
+  @media screen and (min-width: 1520px) {
+    .project-content {
+      padding-top: 124px; } }
+  @media screen and (min-width: 620px) {
+    .project-content {
+      padding-bottom: 60px; } }
+  @media screen and (min-width: 910px) {
+    .project-content {
+      padding-bottom: 90px; } }
+  @media screen and (min-width: 1180px) {
+    .project-content {
+      padding-bottom: 108px; } }
+  @media screen and (min-width: 1520px) {
+    .project-content {
+      padding-bottom: 124px; } }
+  .project-content p {
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto; }
+    @media screen and (min-width: 620px) {
+      .project-content p {
+        max-width: 610px; } }
+    @media screen and (min-width: 910px) {
+      .project-content p {
+        max-width: 720px; } }
+    @media screen and (min-width: 1180px) {
+      .project-content p {
+        max-width: 790px; } }
+    @media screen and (min-width: 1520px) {
+      .project-content p {
+        max-width: 840px; } }
+
+/* Hero hero
+----------------------------------------------------------------------------- */
+.hero-image,
+.hero-image---home {
+  background-size: cover;
+  background-position: center; }
+
+.hero-image {
+  height: 100vh; }
+
+.hero-image---home {
+  background-size: cover;
+  background-position: center;
+  height: calc(100vh - 136px); }
+  @media screen and (min-width: 620px) {
+    .hero-image---home {
+      height: calc(100vh - 100px); } }
+  @media screen and (min-width: 910px) {
+    .hero-image---home {
+      height: calc(100vh - 82px); } }
+  @media screen and (min-width: 1180px) {
+    .hero-image---home {
+      height: calc(100vh - 92px); } }
+  @media screen and (min-width: 1520px) {
+    .hero-image---home {
+      height: calc(100vh - 99px); } }
+
+.with-hero,
+.with-hero---home {
+  position: absolute; }
+
+.with-hero {
+  margin-top: -100vh; }
+
+.with-hero---home {
+  position: absolute;
+  margin-top: calc(-100vh + 136px); }
+  @media screen and (min-width: 620px) {
+    .with-hero---home {
+      margin-top: calc(-100vh + 100px); } }
+  @media screen and (min-width: 910px) {
+    .with-hero---home {
+      margin-top: calc(-100vh + 82px); } }
+  @media screen and (min-width: 1180px) {
+    .with-hero---home {
+      margin-top: calc(-100vh + 92px); } }
+  @media screen and (min-width: 1520px) {
+    .with-hero---home {
+      margin-top: calc(-100vh + 99px); } }
+
+.four-oh-four {
+  background-color: red; }
+
+/*# sourceMappingURL=main.css.map */
