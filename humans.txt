@@ -3,13 +3,20 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Mike Gallagher, designer etc., mail@mikegallagher.org
 
 # THANKS
 
-    <name>
+    Tom Pearson
+    Max Gadney
+    Sebastian Campos
+    Andrew Shurtz
+    Rebecca Gimenez
+    Hugh Dubberly
+    Robin Bahr
 
 # TECHNOLOGY COLOPHON
 
-    HTML5, CSS3
+    HTML5, CSS3, SCSS
     jQuery, Modernizr
+    Hugo
